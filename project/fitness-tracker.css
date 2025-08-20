@@ -1,0 +1,190 @@
+/* Fitness Tracker Styles */
+.fitness-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.fitness-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 40px 0;
+}
+
+.fitness-hero .hero-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.fitness-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.fitness-hero p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 25px;
+}
+
+/* Activity Summary */
+.activity-summary {
+    margin-bottom: 40px;
+}
+
+.activity-summary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.activity-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.activity-card i {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.activity-card h3 {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.progress {
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #3498db;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* Workout Plans */
+.workout-plans {
+    margin-bottom: 40px;
+}
+
+.workout-plans h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.workout-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.workout-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.workout-card:hover {
+    transform: translateY(-5px);
+}
+
+.workout-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.workout-image span {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.workout-details {
+    padding: 20px;
+}
+
+.workout-details h3 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+}
+
+.workout-details p {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.workout-details button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.workout-details button:hover {
+    background: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fitness-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    .fitness-hero .hero-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .activity-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .workout-cards {
+        grid-template-columns: 1fr;
+    }
+}

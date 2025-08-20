@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS MEDI HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">NEXUS MEDI HUB</div>
+        <div class="nav-links">
+            <a href="#" class="nav-link" id="loginBtn">Login/Signup</a>
+            <a href="dashboard.html" class="nav-link" id="dashboardLink" style="display: none;">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation -->
+    <div class="main-nav">
+        <a href="#" class="nav-btn active"><i class="fas fa-home"></i> Home</a>
+        <a href="doctor.html" class="nav-btn"><i class="fas fa-user-md"></i> Consult Doctor</a>
+        <a href="insurance.html" class="nav-btn"><i class="fas fa-shield-alt"></i> Find Insurance</a>
+        <a href="ai-chat.html" class="nav-btn"><i class="fas fa-robot"></i> Chat with AI</a>
+        <a href="emergency.html" class="emergency-btn"><i class="fas fa-ambulance"></i> EMERGENCY</a>
+    </div>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access">
+        <h2>Quick Access</h2>
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <div class="access-card" onclick="window.location.href='ai-chat.html'">
+                    <i class="fas fa-comment-medical"></i>
+                    <p>Chat with AI</p>
+                </div>
+                <div class="access-card" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <p>Dashboard</p>
+                </div>
+                <div class="access-card" onclick="window.location.href='scan-reports.html'">
+                    <i class="fas fa-file-medical"></i>
+                    <p>Scan Reports</p>
+                </div>
+                <div class="access-card" onclick="window.location.href='blood-donation.html'">
+                    <i class="fas fa-tint"></i>
+                    <p>Blood Donation</p>
+                </div>
+                <div class="access-card" onclick="window.location.href='diet-planner.html'">
+                    <i class="fas fa-utensils"></i>
+                    <p>Diet Chart</p>
+                </div>
+                <div class="access-card" onclick="window.location.href='goals.html'">
+                    <i class="fas fa-bullseye"></i>
+                    <p>My Goals</p>
+                </div>
+                <div class="access-card" onclick="window.location.href='shop.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Shop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors">
+        <div class="section-header">
+            <h2>Top Doctors in Chennai</h2>
+            <a href="doctor.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card-container">
+            <!-- Doctor cards will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Hospitals Section -->
+    <section class="hospitals">
+        <div class="section-header">
+            <h2>Nearby Hospitals</h2>
+            <a href="hospitals.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="card-container">
+            <!-- Hospital cards will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>NEXUS MEDI HUB</h3>
+                <p>Your trusted healthcare partner in Chennai</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@nexusmedihub.com</p>
+                <p>Phone: +91 44 1234 5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NEXUS MEDI HUB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <h3>Welcome Back</h3>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="forgot-password">Forgot Password?</p>
+            </form>
+            
+            <!-- Signup Form (initially hidden) -->
+            <form id="signupForm" class="auth-form" style="display: none;">
+                <h3>Create Account</h3>
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

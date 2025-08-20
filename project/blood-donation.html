@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation - NEXUS MEDI HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blood-donation.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">NEXUS MEDI HUB</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="blood-donation-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1><i class="fas fa-hand-holding-heart"></i> Donate Blood, Save Lives</h1>
+                <p class="hero-subtitle">Your single donation can save up to 3 lives. Join our community of heroes today.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="donorsCount">10,254+</div>
+                        <div class="stat-label">Donors</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="donationsCount">45,892+</div>
+                        <div class="stat-label">Donations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="livesSaved">137,676+</div>
+                        <div class="stat-label">Lives Saved</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://img.freepik.com/free-vector/blood-donation-concept-illustration_114360-12387.jpg" alt="Blood Donation">
+            </div>
+        </div>
+
+        <!-- Donation Eligibility Checker -->
+        <div class="eligibility-section">
+            <h2><i class="fas fa-clipboard-check"></i> Check Your Eligibility</h2>
+            <p class="section-subtitle">Answer a few questions to see if you can donate blood today</p>
+            
+            <div class="eligibility-form">
+                <div class="form-step active" id="step1">
+                    <div class="question">
+                        <label>What is your age?</label>
+                        <div class="options">
+                            <button class="option-btn" data-value="under-18">Under 18</button>
+                            <button class="option-btn" data-value="18-60">18 - 60 years</button>
+                            <button class="option-btn" data-value="over-60">Over 60</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-step" id="step2">
+                    <div class="question">
+                        <label>What is your weight?</label>
+                        <div class="options">
+                            <button class="option-btn" data-value="under-50">Under 50 kg</button>
+                            <button class="option-btn" data-value="50-100">50 - 100 kg</button>
+                            <button class="option-btn" data-value="over-100">Over 100 kg</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-step" id="step3">
+                    <div class="question">
+                        <label>Have you donated blood in the last 3 months?</label>
+                        <div class="options">
+                            <button class="option-btn" data-value="yes">Yes</button>
+                            <button class="option-btn" data-value="no">No</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-step" id="step4">
+                    <div class="question">
+                        <label>Do you have any of these conditions?</label>
+                        <div class="options">
+                            <div class="checkbox-group">
+                                <label class="checkbox-container">Cold or flu in the last 2 weeks
+                                    <input type="checkbox" value="cold-flu">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">Major surgery in last 6 months
+                                    <input type="checkbox" value="surgery">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">Pregnant or recently gave birth
+                                    <input type="checkbox" value="pregnancy">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">None of the above
+                                    <input type="checkbox" value="none">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-step" id="step5">
+                    <div class="eligibility-result">
+                        <div class="result-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>You're Eligible to Donate!</h3>
+                        <p>Thank you for checking your eligibility. Based on your answers, you can donate blood.</p>
+                        <button class="primary-btn" id="findCenterBtn">Find a Donation Center</button>
+                    </div>
+                </div>
+                
+                <div class="form-navigation">
+                    <button class="btn secondary-btn" id="prevBtn" disabled>Previous</button>
+                    <div class="step-indicator">
+                        <span class="step active">1</span>
+                        <span class="step">2</span>
+                        <span class="step">3</span>
+                        <span class="step">4</span>
+                    </div>
+                    <button class="btn primary-btn" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Find Donation Centers -->
+        <div class="centers-section" id="donationCenters">
+            <div class="section-header">
+                <h2><i class="fas fa-map-marker-alt"></i> Find a Donation Center</h2>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="locationSearch" placeholder="Enter your location">
+                </div>
+            </div>
+            
+            <div class="centers-container">
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+                <div class="centers-list" id="centersList">
+                    <!-- Centers will be dynamically loaded here -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading donation centers near you...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blood Donation FAQs -->
+        <div class="faq-section">
+            <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Who can donate blood?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most people can donate blood if they are in good health, weigh at least 50 kg, and are between 18-65 years old. There are some medical conditions and medications that may affect your eligibility.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How often can I donate blood?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can donate whole blood every 56 days (8 weeks). Platelet donations can be made more frequently, up to 24 times a year.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How long does the donation process take?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The actual blood donation takes about 8-10 minutes. However, you should plan to spend about an hour for the entire process, which includes registration, a health screening, and refreshments after donation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Is it safe to donate blood?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, donating blood is safe. New, sterile, disposable equipment is used for each donor, so there's no risk of contracting a bloodborne infection by donating blood.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What should I do before donating blood?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>Get a good night's sleep</li>
+                            <li>Eat a healthy meal before your donation</li>
+                            <li>Drink plenty of water or other non-alcoholic fluids</li>
+                            <li>Bring your ID, a list of medications you're taking, and any required forms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation Drive Section -->
+        <div class="drive-section">
+            <div class="drive-content">
+                <h2>Host a Blood Donation Drive</h2>
+                <p>Organize a blood donation drive in your community, workplace, or educational institution and help save more lives.</p>
+                <button class="primary-btn">Learn More</button>
+            </div>
+            <div class="drive-image">
+                <img src="https://img.freepik.com/free-vector/blood-donation-concept-illustration_114360-12389.jpg" alt="Blood Donation Drive">
+            </div>
+        </div>
+
+        <!-- Emergency Blood Request -->
+        <div class="emergency-section">
+            <div class="emergency-content">
+                <div class="emergency-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <h3>Need Blood Urgently?</h3>
+                    <p>If you or someone you know needs blood urgently, we can help connect you with potential donors.</p>
+                </div>
+                <button class="primary-btn">Request Blood</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="blood-donation.js"></script>
+</body>
+</html>
