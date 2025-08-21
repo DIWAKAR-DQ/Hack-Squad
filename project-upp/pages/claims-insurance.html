@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXUS MEDI HUB — Claims & Reports</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">NEXUS MEDI HUB<span class="badge">Claims</span></div>
+    <nav>
+      <a href="index.html.html">Home</a>
+      <a href="plans-insurance.html">Plans</a>
+      <a href="doctors-insurance.html">Doctors</a>
+      <a href="support-insurance.html">Support</a>
+      <a class="login-btn" href="dashboard-insurance.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="section-title" style="font-size:22px">Submit a Claim</div>
+        <form id="claim-form" class="grid grid-2">
+          <div>
+            <label>Policy Number</label>
+            <input class="input" required placeholder="MS-XXXX-1234">
+          </div>
+          <div>
+            <label>Claim Amount (₹)</label>
+            <input class="input" type="number" required>
+          </div>
+          <div>
+            <label>Admission Date</label>
+            <input class="input" type="date" required>
+          </div>
+          <div>
+            <label>Discharge Date</label>
+            <input class="input" type="date" required>
+          </div>
+          <div style="grid-column:1/-1">
+            <label>Diagnosis</label>
+            <input class="input" required>
+          </div>
+          <div style="grid-column:1/-1">
+            <label>Notes</label>
+            <textarea class="input" rows="4" placeholder="Any additional details…"></textarea>
+          </div>
+          <div style="grid-column:1/-1" class="mt-2">
+            <button class="btn primary" type="submit">Submit Claim</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="section-title" style="font-size:22px">Claims Overview</div>
+        <canvas id="line" height="180"></canvas>
+        <p class="subtitle mt-2">Last 12 months trend of submitted vs approved claims.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

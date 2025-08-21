@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Doctor</title>
+    <link rel="stylesheet" href="doc-style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="doc-index.html">NEXUS MEDI HUB</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="doc-index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chat-container">
+            <button class="btn-back" onclick="history.back()">← Go Back</button>
+            <div class="chat-box">
+                <div class="message doctor">
+                    <p>Hello! How can I help you today?</p>
+                </div>
+                <div class="message user">
+                    <p>I have a headache.</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message...">
+                <button class="btn">Send</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Doctor Consultation. All rights reserved.</p>
+    </footer>
+<script src="doc-script.js" defer></script>
+</body>
+</html>

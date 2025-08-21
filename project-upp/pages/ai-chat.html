@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Health Assistant - NEXUS MEDI HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ai-chat.css">
+    <script src="https://sdk.vercel.ai/ai.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">NEXUS MEDI HUB</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="ai-chat-container">
+        <div class="ai-chat-header">
+            <h1><i class="fas fa-robot"></i> AI Health Assistant</h1>
+            <p class="subtitle">Your virtual doctor — here to listen, guide, and care for you.</p>
+        </div>
+
+        <div class="chat-container">
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message">
+                    <div class="avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-sender">Dr. AI</div>
+                        <div class="message-text">
+                            Hello! I'm your AI Health Assistant. I can help answer your health-related questions, 
+                            provide information about symptoms, and guide you on when to see a doctor. 
+                            How can I assist you today?
+                        </div>
+                        <div class="quick-questions">
+                            <span class="quick-question">What are common cold symptoms?</span>
+                            <span class="quick-question">How to lower blood pressure?</span>
+                            <span class="quick-question">When to see a doctor for a headache?</span>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="attachment-options">
+                    <button class="icon-btn" id="uploadImageBtn" title="Upload Image">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                    <button class="icon-btn" id="voiceInputBtn" title="Voice Input">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                <div class="message-input-container">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Type your health concern here..."
+                        rows="1"
+                    ></textarea>
+                    <button id="sendMessageBtn" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="ai-features">
+            <h3>What I can help you with:</h3>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h4>Symptom Checker</h4>
+                    <p>Describe your symptoms and get possible conditions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h4>Medication Info</h4>
+                    <p>Get information about medications and side effects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4>Health Tips</h4>
+                    <p>Daily health and wellness advice</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h4>Find Doctors</h4>
+                    <p>Connect with healthcare professionals</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Notice -->
+    <div class="emergency-notice">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>This is not a substitute for professional medical advice. In case of emergency, call your local emergency number immediately.</p>
+        <button class="emergency-btn">
+            <i class="fas fa-phone-alt"></i> Emergency Services
+        </button>
+    </div>
+
+    <script src="ai-chat.js"></script>
+</body>
+</html>

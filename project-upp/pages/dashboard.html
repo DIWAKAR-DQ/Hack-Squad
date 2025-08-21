@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="dashboard-container">
+  
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">MediAI</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active"><i class="fas fa-home"></i> Dashboard</a>
+      <a href="#" class="nav-item"><i class="fas fa-user-md"></i> Consultations</a>
+      <a href="#" class="nav-item"><i class="fas fa-pills"></i> Prescriptions</a>
+      <a href="scan-reports.html" class="nav-item"><i class="fas fa-file-medical"></i> Records</a>
+      <a href="#" class="nav-item"><i class="fas fa-chart-line"></i> Analytics</a>
+      <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search here...">
+      </div>
+      <div class="top-actions">
+        <button class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+        <div class="user-profile">
+          <img src="logo.jpeg" alt="Profile" widhth="40" height="50">
+        </div>
+      </div>
+    </header>
+
+    <!-- Profile Header -->
+    <section class="profile-header">
+      <div class="profile-info">
+        <div class="profile-avatar">
+          <img src="logo.jpeg" alt="User"widhth="150" height="150">
+        </div>
+        <div>
+          <h2>John</h2>
+          <p>Patient ID: #10245</p>
+          <p>Last Visit: 20 Aug 2025</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-content">
+
+      <!-- Left Section -->
+      <div class="left-content">
+
+        <!-- Quick Stats -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <i class="fas fa-heartbeat"></i>
+            <div>
+              <h3>72 bpm</h3>
+              <p>Heart Rate</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-tint"></i>
+            <div>
+              <h3>120/80</h3>
+              <p>Blood Pressure</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-burn"></i>
+            <div>
+              <h3>98%</h3>
+              <p>Oxygen Level</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prescriptions -->
+        <div class="dashboard-section">
+          <h3>Active Prescriptions</h3>
+          <div class="prescription-card">
+            <h4>Amoxicillin</h4>
+            <p>500mg | 2 times a day</p>
+            <span class="status active">Active</span>
+          </div>
+          <div class="prescription-card">
+            <h4>Paracetamol</h4>
+            <p>650mg | When fever</p>
+            <span class="status expired">Expired</span>
+          </div>
+        </div>
+
+        <!-- Medical Documents -->
+        <div class="dashboard-section">
+          <h3>Recent Documents</h3>
+          <div class="document-card">
+            <i class="fas fa-file-pdf"></i>
+            <p>Blood Test Report</p>
+            <span>Aug 15, 2025</span>
+          </div>
+          <div class="document-card">
+            <i class="fas fa-file-medical"></i>
+            <p>X-Ray Chest</p>
+            <span>Aug 10, 2025</span>
+          </div>
+        </div>
+
+        <!-- Appointments -->
+        <div class="dashboard-section">
+          <h3>Upcoming Appointments</h3>
+          <div class="appointment-card">
+            <i class="fas fa-user-md"></i>
+            <div>
+              <p>Dr. Smith</p>
+              <span>Aug 25, 2025 | 10:00 AM</span>
+            </div>
+          </div>
+          <div class="appointment-card">
+            <i class="fas fa-user-md"></i>
+            <div>
+              <p>Dr. Taylor</p>
+              <span>Sep 2, 2025 | 4:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section -->
+      <div class="right-content">
+
+        <!-- Analytics -->
+        <div class="dashboard-section analytics-card">
+          <h3>Health Analytics</h3>
+          <canvas id="bpChart" height="200"></canvas>
+        </div>
+
+        <!-- Medicine Adherence -->
+        <div class="dashboard-section">
+          <h3>Medicine Adherence</h3>
+          <div class="progress-circle">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">82%</div>
+          </div>
+          <p class="adherence-text">You are following your medication schedule well.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+// Chart Example
+const ctx = document.getElementById('bpChart');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    datasets: [{
+      label: 'Systolic',
+      data: [120,118,122,119,121,117,120],
+      borderColor: '#1e40af',
+      tension: 0.4
+    },{
+      label: 'Diastolic',
+      data: [80,79,82,78,81,77,80],
+      borderColor: '#22c55e',
+      tension: 0.4
+    }]
+  }
+});
+</script>
+</body>
+</html>

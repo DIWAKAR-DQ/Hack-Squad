@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Reports - NEXUS MEDI HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="scan-reports.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">NEXUS MEDI HUB</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="scan-reports-container">
+        <div class="page-header">
+            <h1><i class="fas fa-file-medical"></i> My Medical Reports</h1>
+            <p class="subtitle">Upload, view, and manage your medical scan reports in one secure place.</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="upload-card">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>Upload New Report</h3>
+                <p>Drag & drop files here or click to browse</p>
+                <input type="file" id="fileUpload" accept=".pdf,.jpg,.jpeg,.png" multiple style="display: none;">
+                <button class="upload-btn" id="browseBtn">Select Files</button>
+                <div class="file-types">
+                    <span>Supported: PDF, JPG, PNG</span>
+                    <span>Max size: 10MB per file</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="filter-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search reports...">
+            </div>
+            <div class="filter-options">
+                <select id="filterType">
+                    <option value="all">All Report Types</option>
+                    <option value="xray">X-Ray</option>
+                    <option value="mri">MRI</option>
+                    <option value="ct">CT Scan</option>
+                    <option value="ultrasound">Ultrasound</option>
+                    <option value="blood">Blood Test</option>
+                    <option value="other">Other</option>
+                </select>
+                <select id="filterDate">
+                    <option value="recent">Most Recent</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Reports Grid -->
+        <div class="reports-grid" id="reportsGrid">
+            <!-- Reports will be dynamically loaded here -->
+            <div class="no-reports">
+                <i class="fas fa-folder-open"></i>
+                <p>No reports found. Upload your first medical report to get started.</p>
+            </div>
+        </div>
+
+        <!-- Report Preview Modal -->
+        <div class="modal" id="reportModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalReportTitle">Report Details</h3>
+                    <span class="close-btn" id="closeModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="report-preview" id="reportPreview">
+                        <!-- Report content will be loaded here -->
+                    </div>
+                    <div class="report-details">
+                        <h4>Report Information</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Date:</span>
+                            <span class="detail-value" id="reportDate">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Type:</span>
+                            <span class="detail-value" id="reportType">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Doctor:</span>
+                            <span class="detail-value" id="reportDoctor">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Facility:</span>
+                            <span class="detail-value" id="reportFacility">-</span>
+                        </div>
+                        <div class="detail-item full-width">
+                            <span class="detail-label">Notes:</span>
+                            <p class="detail-notes" id="reportNotes">No additional notes available.</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn primary-btn" id="downloadBtn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="btn secondary-btn" id="shareBtn">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                            <button class="btn danger-btn" id="deleteBtn">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Progress Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content upload-modal">
+            <div class="modal-header">
+                <h3>Uploading Reports</h3>
+            </div>
+            <div class="modal-body">
+                <div class="upload-progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="uploadProgress"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+                <div class="upload-queue" id="uploadQueue">
+                    <!-- Upload queue items will be added here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary-btn" id="cancelUploadBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scan-reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Planner - NEXUS MEDI HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="diet-planner.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">NEXUS MEDI HUB</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="ai-chat.html" class="nav-link"><i class="fas fa-robot"></i> AI Doctor</a>
+            <a href="scan-reports.html" class="nav-link"><i class="fas fa-file-medical"></i> Reports</a>
+            <a href="blood-donation.html" class="nav-link"><i class="fas fa-tint"></i> Blood Donation</a>
+            <a href="diet-planner.html" class="nav-link active"><i class="fas fa-utensils"></i> Diet Planner</a>
+        </div>
+        <button class="login-btn">Login / Sign Up</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="diet-planner-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1><i class="fas fa-utensils"></i> Personalized Diet & Nutrition</h1>
+                <p class="hero-subtitle">Achieve your health goals with a customized meal plan tailored to your needs. Track your nutrition, discover healthy recipes, and stay hydrated.</p>
+                <button class="primary-btn" id="getStartedBtn">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://img.freepik.com/free-vector/healthy-food-background_23-2148238541.jpg" alt="Healthy Food">
+            </div>
+        </section>
+
+        <!-- Daily Nutrition Summary -->
+        <section class="nutrition-summary">
+            <h2><i class="fas fa-chart-pie"></i> Today's Nutrition</h2>
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="summary-details">
+                        <h3>Calories</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="caloriesProgress"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>0</span>
+                            <span>2,500</span>
+                        </div>
+                        <p>0% of daily goal</p>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="summary-details">
+                        <h3>Protein</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>0g</span>
+                            <span>120g</span>
+                        </div>
+                        <p>0% of daily goal</p>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="summary-details">
+                        <h3>Carbs</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>0g</span>
+                            <span>300g</span>
+                        </div>
+                        <p>0% of daily goal</p>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="summary-details">
+                        <h3>Fat</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>0g</span>
+                            <span>60g</span>
+                        </div>
+                        <p>0% of daily goal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meal Plan -->
+        <section class="meal-plan-section">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-alt"></i> My Meal Plan</h2>
+                <div class="date-navigation">
+                    <button class="nav-arrow" id="prevDay" aria-label="Previous day">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="currentDate">Today, Aug 21</span>
+                    <button class="nav-arrow" id="nextDay" aria-label="Next day" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="meal-cards">
+                <!-- Breakfast -->
+                <article class="meal-card">
+                    <div class="meal-header">
+                        <h3>Breakfast</h3>
+                        <span class="meal-time">8:00 AM</span>
+                    </div>
+                    <div class="meal-content">
+                        <div class="meal-item">
+                            <div class="meal-item-info">
+                                <h4>Oatmeal with Berries</h4>
+                                <div class="meal-macros">
+                                    <span>350 cal</span>
+                                    <span>12g P</span>
+                                    <span>60g C</span>
+                                    <span>8g F</span>
+                                </div>
+                            </div>
+                            <button class="meal-action-btn" aria-label="Meal options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <button class="add-food-btn">
+                            <i class="fas fa-plus"></i> Add Food
+                        </button>
+                    </div>
+                    <div class="meal-total">
+                        <span>Total: 350 cal</span>
+                        <span>12g P | 60g C | 8g F</span>
+                    </div>
+                </article>
+                
+                <!-- Lunch -->
+                <article class="meal-card">
+                    <div class="meal-header">
+                        <h3>Lunch</h3>
+                        <span class="meal-time">1:00 PM</span>
+                    </div>
+                    <div class="meal-content">
+                        <div class="meal-item">
+                            <div class="meal-item-info">
+                                <h4>Grilled Chicken Salad</h4>
+                                <div class="meal-macros">
+                                    <span>450 cal</span>
+                                    <span>40g P</span>
+                                    <span>20g C</span>
+                                    <span>22g F</span>
+                                </div>
+                            </div>
+                            <button class="meal-action-btn" aria-label="Meal options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <button class="add-food-btn">
+                            <i class="fas fa-plus"></i> Add Food
+                        </button>
+                    </div>
+                    <div class="meal-total">
+                        <span>Total: 450 cal</span>
+                        <span>40g P | 20g C | 22g F</span>
+                    </div>
+                </article>
+                
+                <!-- Snack -->
+                <article class="meal-card">
+                    <div class="meal-header">
+                        <h3>Snack</h3>
+                        <span class="meal-time">4:00 PM</span>
+                    </div>
+                    <div class="meal-content">
+                        <div class="meal-item">
+                            <div class="meal-item-info">
+                                <h4>Greek Yogurt with Nuts</h4>
+                                <div class="meal-macros">
+                                    <span>250 cal</span>
+                                    <span>15g P</span>
+                                    <span>15g C</span>
+                                    <span>12g F</span>
+                                </div>
+                            </div>
+                            <button class="meal-action-btn" aria-label="Meal options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <button class="add-food-btn">
+                            <i class="fas fa-plus"></i> Add Food
+                        </button>
+                    </div>
+                    <div class="meal-total">
+                        <span>Total: 250 cal</span>
+                        <span>15g P | 15g C | 12g F</span>
+                    </div>
+                </article>
+                
+                <!-- Dinner -->
+                <article class="meal-card">
+                    <div class="meal-header">
+                        <h3>Dinner</h3>
+                        <span class="meal-time">8:00 PM</span>
+                    </div>
+                    <div class="meal-content">
+                        <div class="meal-item">
+                            <div class="meal-item-info">
+                                <h4>Grilled Salmon</h4>
+                                <div class="meal-macros">
+                                    <span>350 cal</span>
+                                    <span>35g P</span>
+                                    <span>0g C</span>
+                                    <span>22g F</span>
+                                </div>
+                            </div>
+                            <button class="meal-action-btn" aria-label="Meal options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="meal-item">
+                            <div class="meal-item-info">
+                                <h4>Quinoa & Vegetables</h4>
+                                <div class="meal-macros">
+                                    <span>220 cal</span>
+                                    <span>8g P</span>
+                                    <span>40g C</span>
+                                    <span>5g F</span>
+                                </div>
+                            </div>
+                            <button class="meal-action-btn" aria-label="Meal options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <button class="add-food-btn">
+                            <i class="fas fa-plus"></i> Add Food
+                        </button>
+                    </div>
+                    <div class="meal-total">
+                        <span>Total: 570 cal</span>
+                        <span>43g P | 40g C | 27g F</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Water Intake Tracker -->
+        <section class="water-tracker">
+            <h2><i class="fas fa-tint"></i> Water Intake</h2>
+            <div class="water-cups">
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>1</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>2</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>3</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>4</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>5</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>6</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>7</span>
+                </div>
+                <div class="water-cup" data-amount="250">
+                    <div class="cup-fill"></div>
+                    <span>8</span>
+                </div>
+            </div>
+            <div class="water-stats">
+                <div class="water-progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="water-amount">
+                    <span>0ml</span>
+                    <span>2000ml</span>
+                </div>
+                <p>0% of daily goal</p>
+            </div>
+        </section>
+
+        <!-- Recipe Suggestions -->
+        <section class="recipes-section">
+            <div class="section-header">
+                <h2><i class="fas fa-utensil-spoon"></i> Recipe Suggestions</h2>
+                <button class="secondary-btn">View All</button>
+            </div>
+            
+            <div class="recipe-cards">
+                <article class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+                        <span class="recipe-time"><i class="far fa-clock"></i> 30 min</span>
+                    </div>
+                    <div class="recipe-details">
+                        <h3>Quinoa Buddha Bowl</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-fire"></i> 420 cal</span>
+                            <span><i class="fas fa-utensils"></i> Vegan</span>
+                        </div>
+                        <p>Packed with protein and veggies, this colorful bowl is as nutritious as it is delicious.</p>
+                        <button class="recipe-btn">View Recipe</button>
+                    </div>
+                </article>
+                
+                <article class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+                        <span class="recipe-time"><i class="far fa-clock"></i> 25 min</span>
+                    </div>
+                    <div class="recipe-details">
+                        <h3>Grilled Salmon</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-fire"></i> 380 cal</span>
+                            <span><i class="fas fa-fish"></i> High Protein</span>
+                        </div>
+                        <p>Perfectly grilled salmon with a lemon butter sauce, served with roasted vegetables.</p>
+                        <button class="recipe-btn">View Recipe</button>
+                    </div>
+                </article>
+                
+                <article class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');">
+                        <span class="recipe-time"><i class="far fa-clock"></i> 20 min</span>
+                    </div>
+                    <div class="recipe-details">
+                        <h3>Rainbow Salad</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-fire"></i> 280 cal</span>
+                            <span><i class="fas fa-leaf"></i> Low Carb</span>
+                        </div>
+                        <p>A refreshing mix of colorful vegetables topped with a light vinaigrette dressing.</p>
+                        <button class="recipe-btn">View Recipe</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Nutrition Tips -->
+        <section class="tips-section">
+            <h2><i class="fas fa-lightbulb"></i> Nutrition Tips</h2>
+            <div class="tips-container">
+                <article class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Eat the Rainbow</h3>
+                    <p>Include a variety of colorful fruits and vegetables in your diet to get a wide range of nutrients and antioxidants.</p>
+                </article>
+                
+                <article class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Stay Hydrated</h3>
+                    <p>Drink at least 8 glasses of water daily to maintain optimal body function, energy levels, and digestion.</p>
+                </article>
+                
+                <article class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Portion Control</h3>
+                    <p>Be mindful of portion sizes to avoid overeating, even when consuming healthy foods. Use smaller plates to help with portion control.</p>
+                </article>
+                
+                <article class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Mindful Eating</h3>
+                    <p>Eat slowly, without distractions, and listen to your body's hunger and fullness cues to prevent overeating.</p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <script src="diet-planner.js"></script>
+</body>
+</html>

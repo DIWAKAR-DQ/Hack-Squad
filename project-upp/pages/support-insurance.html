@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MediSure — Support & Help</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">NEXUS MEDI HUB <span class="badge">Support</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="plans-insurance.html">Plans</a>
+      <a href="doctors-insurance.html">Doctors</a>
+      <a href="claims-insurance.html">Claims</a>
+      <a class="login-btn" href="dashboard-insurance.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="section-title" style="font-size:22px">Contact Us</div>
+        <form id="support-form" class="grid">
+          <input class="input" placeholder="Your Name" required>
+          <input class="input" placeholder="Email" type="email" required>
+          <textarea class="input" rows="5" placeholder="How can we help?" required></textarea>
+          <div class="cta"><button class="btn primary" type="submit">Create Ticket</button></div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="section-title" style="font-size:22px">AI Assistant (placeholder)</div>
+        <p class="subtitle">Plug your API key later. For now, this is a UI shell.</p>
+        <div style="background:var(--bg); border:1px dashed #c7d2fe; border-radius:16px; padding:12px; height:260px; overflow:auto">
+          <div class="badge">Bot</div> Hi! Ask me about coverage, claims, and hospitals.
+        </div>
+        <div class="cta mt-2">
+          <input class="input" placeholder="Type your question…">
+          <button class="btn">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXUS MEDI HUB— Insurance Plans</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">NEXUS MEDI HUB <span class="badge">Plans</span></div>
+    <nav>
+      <a href="home-insurance.html">Home</a>
+      <a href="doctors-insurance.html">Doctors</a>
+      <a href="claims-insurance.html">Claims</a>
+      <a href="support-insurance.html">Support</a>
+      <a class="login-btn" href="dashboard-insurance.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="section-title">Explore Plans</div>
+    <p class="subtitle">Live demo uses free APIs for catalog & reviews. Add your real APIs later.</p>
+
+    <div class="grid" style="grid-template-columns: 2.2fr 1fr; align-items:start">
+      <div>
+        <div class="grid" style="grid-template-columns:1fr 180px">
+          <input id="search" class="input" placeholder="Search (family, senior, critical…)" />
+          <a class="btn primary center" href="#cart" onclick="location.href='support-insurance.html#purchase'">Get Help</a>
+        </div>
+        <div id="plans-grid" class="grid grid-2 mt-3"></div>
+      </div>
+
+      <aside class="card">
+        <div class="section-title" style="font-size:20px">Plan Details</div>
+        <div id="plan-drawer" class="subtitle">Click any “Details” to preview here.</div>
+        <hr class="sep">
+        <div class="subtitle"><strong>Why buy from MediSure?</strong></div>
+        <ul>
+          <li>Cashless network hospitals</li>
+          <li>No-claim bonus up to 50%</li>
+          <li>24×7 support</li>
+          <li>Fast claims with e-KYC</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

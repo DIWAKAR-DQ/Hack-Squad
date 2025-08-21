@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors - Medical trust foundation */
+  --color-primary: #2E86AB; /* blue-600 */
+  --color-primary-50: #EBF5FB; /* blue-50 */
+  --color-primary-100: #D6EBF7; /* blue-100 */
+  --color-primary-200: #AED6EF; /* blue-200 */
+  --color-primary-300: #85C1E7; /* blue-300 */
+  --color-primary-400: #5CACDF; /* blue-400 */
+  --color-primary-500: #3497D7; /* blue-500 */
+  --color-primary-600: #2E86AB; /* blue-600 */
+  --color-primary-700: #256B86; /* blue-700 */
+  --color-primary-800: #1C5062; /* blue-800 */
+  --color-primary-900: #13353D; /* blue-900 */
+
+  /* Secondary Colors - Beauty warmth accent */
+  --color-secondary: #F18F01; /* orange-500 */
+  --color-secondary-50: #FEF7E6; /* orange-50 */
+  --color-secondary-100: #FDEFD0; /* orange-100 */
+  --color-secondary-200: #FBDFA0; /* orange-200 */
+  --color-secondary-300: #F9CF71; /* orange-300 */
+  --color-secondary-400: #F7AF41; /* orange-400 */
+  --color-secondary-500: #F18F01; /* orange-500 */
+  --color-secondary-600: #C17301; /* orange-600 */
+  --color-secondary-700: #915701; /* orange-700 */
+  --color-secondary-800: #603A00; /* orange-800 */
+  --color-secondary-900: #301D00; /* orange-900 */
+
+  /* Accent Colors - Health positive reinforcement */
+  --color-accent: #4CAF50; /* green-500 */
+  --color-accent-50: #E8F5E8; /* green-50 */
+  --color-accent-100: #C8E6C9; /* green-100 */
+  --color-accent-200: #A5D6A7; /* green-200 */
+  --color-accent-300: #81C784; /* green-300 */
+  --color-accent-400: #66BB6A; /* green-400 */
+  --color-accent-500: #4CAF50; /* green-500 */
+  --color-accent-600: #43A047; /* green-600 */
+  --color-accent-700: #388E3C; /* green-700 */
+  --color-accent-800: #2E7D32; /* green-800 */
+  --color-accent-900: #1B5E20; /* green-900 */
+
+  /* Background Colors */
+  --color-background: #FAFBFC; /* gray-50 */
+  --color-surface: #F5F7FA; /* gray-100 */
+
+  /* Text Colors */
+  --color-text-primary: #1A202C; /* gray-900 */
+  --color-text-secondary: #4A5568; /* gray-600 */
+
+  /* Status Colors */
+  --color-success: #38A169; /* green-600 */
+  --color-warning: #ED8936; /* orange-400 */
+  --color-error: #E53E3E; /* red-500 */
+
+  /* Border Colors */
+  --color-border: #E2E8F0; /* gray-200 */
+  --color-border-light: #F7FAFC; /* gray-100 */
+
+  /* Shadow Colors */
+  --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-inter font-semibold transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-inter font-semibold transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-card border border-border-light transition-all duration-300 ease-out hover:shadow-subtle;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300;
+  }
+
+  .text-heading {
+    @apply font-inter font-bold text-text-primary;
+  }
+
+  .text-body {
+    @apply font-source-sans text-text-primary;
+  }
+
+  .text-accent {
+    @apply font-playfair text-text-primary;
+  }
+
+  .medical-gradient {
+    @apply bg-gradient-to-r from-primary-50 to-accent-50;
+  }
+
+  .beauty-gradient {
+    @apply bg-gradient-to-r from-secondary-50 to-primary-50;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out hover:scale-102;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive typography */
+@layer base {
+  html {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}

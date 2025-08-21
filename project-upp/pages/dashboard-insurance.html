@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXUS MEDI HUB — Member Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>NEXUS MEDI HUB</h2>
+    <div class="side-links">
+      <a href="dashboard-insurance.html">Dashboard</a>
+      <a href="plans-insurance.html">Plans</a>
+      <a href="doctors-insurance.html">Doctors</a>
+      <a href="claims-insurance.html">Claims</a>
+      <a href="support-insurance.html">Support</a>
+      <a href="index.html">Back to Home</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-title">Hello Jhon!</div>
+    <p class="subtitle">Here are your important tasks, updates and alerts. You can set your preferences here.</p>
+
+    <div class="stat-grid mt-2">
+      <div class="stat">Total Patients<br><span style="font-size:26px">2,015</span></div>
+      <div class="stat">Total Reports<br><span style="font-size:26px">2,000</span></div>
+      <div class="stat">Total Staffs<br><span style="font-size:26px">550</span></div>
+      <div class="stat">Total Cars<br><span style="font-size:26px">50</span></div>
+    </div>
+
+    <div class="grid grid-3 mt-3">
+      <div class="chart-box">
+        <div class="subtitle"><strong>Premiums by Category</strong></div>
+        <canvas id="bar" height="140"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="subtitle"><strong>Claims Status Split</strong></div>
+        <canvas id="pie" height="140"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="subtitle"><strong>Active Policies (12 months)</strong></div>
+        <canvas id="line" height="140"></canvas>
+      </div>
+    </div>
+
+    <div class="grid grid-2 mt-3">
+      <div class="card">
+        <div class="subtitle"><strong>Doctor List</strong></div>
+        <table class="table">
+          <thead><tr><th>Doctor</th><th>Speciality</th><th>Next Slot</th></tr></thead>
+          <tbody>
+            <tr><td>Dr. Jaylan Stanton</td><td>Dentist</td><td>20 May 6:30pm</td></tr>
+            <tr><td>Dr. Carla Schleifer</td><td>Oculist</td><td>21 May 12:00pm</td></tr>
+            <tr><td>Dr. Hanna Qadri</td><td>Surgeon</td><td>22 May 9:00am</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="subtitle"><strong>Online Appointments</strong></div>
+        <table class="table">
+          <thead><tr><th>No.</th><th>Name</th><th>Date & Time</th><th>Gender</th><th>Doctor</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>Nithya</td><td>20 May 6:30pm</td><td>Female</td><td>Dr. Lee</td></tr>
+            <tr><td>02</td><td>Vasan</td><td>20 May 7:00pm</td><td>Male</td><td>Dr. Gregory</td></tr>
+            <tr><td>03</td><td>Olive</td><td>20 May 7:30pm</td><td>Female</td><td>Dr. Mitchell</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

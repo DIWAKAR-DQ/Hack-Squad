@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="doc-style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="doc-index.html">NEXUS MEDI HUB</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="doc-index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="appointment-form">
+            <button class="btn-back" onclick="history.back()">← Go Back</button>
+            <h2>Book an Appointment</h2>
+            <div class="doctor-info-small">
+                <img src="https://via.placeholder.com/100" alt="Doctor Name">
+                <div>
+                    <h3>Dr. John Doe</h3>
+                    <p>Cardiology</p>
+                </div>
+            </div>
+            <form>
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date">
+                <label for="time">Select Time:</label>
+                <input type="time" id="time" name="time">
+                <a href="doc-payment.html" class="btn">Confirm Appointment</a>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Doctor Consultation. All rights reserved.</p>
+    </footer>
+<script src="doc-script.js" defer></script>
+</body>
+</html>
